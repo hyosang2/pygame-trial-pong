@@ -22,28 +22,51 @@ Welcome to the Pong Game project! This is a simple implementation of the classic
 
 ### 1. Install Python 3
 - Download and install Python 3 from [python.org](https://www.python.org/downloads/) if you don't already have it.
-- Confirm installation with:
+- **macOS:** Confirm installation with:
   ```sh
   python3 --version
   ```
+- **Windows:** Confirm installation with:
+  ```powershell
+  python --version
+  ```
+  or
+  ```powershell
+  py --version
+  ```
 
 ### 2. Install Pygame
-- Open your terminal and run:
+- **macOS:** Open your terminal and run:
   ```sh
   pip3 install pygame
+  ```
+- **Windows:** Open Command Prompt (or PowerShell) and run:
+  ```powershell
+  pip install pygame
+  ```
+  or
+  ```powershell
+  py -m pip install pygame
   ```
 
 ### 3. Open the Project in VSCode
 - Open VSCode.
 - Use `File > Open Folder...` and select the `pygame-trial` project directory.
 
-### 4. Select the Python 3 Interpreter in VSCode
-- Click on the Python version shown in the bottom-left or bottom-right of VSCode.
-- Select a Python 3 interpreter (e.g., `/usr/bin/python3`).
+### 4. Install the Python Extension for VSCode
+- In VSCode, go to the Extensions view (click the square icon on the sidebar or press `Ctrl+Shift+X`).
+- Search for "Python" (by Microsoft) and click **Install**.
+- This extension is required for Python language support and running/debugging Python files in VSCode.
 
-### 5. Fixing the "python: command not found" Issue
+### 5. Select the Python 3 Interpreter in VSCode
+- Click on the Python version shown in the bottom-left or bottom-right of VSCode.
+- Select a Python 3 interpreter:
+  - **macOS example:** `/usr/bin/python3`
+  - **Windows example:** `C:\Users\<YourUser>\AppData\Local\Programs\Python\Python3x\python.exe` (or similar)
+
+### 6. Fixing the "python: command not found" Issue (macOS)
 - If you use the play (▶️) button or the Code Runner extension in VSCode and see `/bin/sh: python: command not found`, it means VSCode is trying to use `python` instead of `python3`.
-- To fix this:
+- To fix this on macOS:
   1. Open VSCode settings (press `Cmd + ,`).
   2. Search for `code runner executor map`.
   3. Click `Edit in settings.json`.
@@ -55,10 +78,36 @@ Welcome to the Pong Game project! This is a simple implementation of the classic
      ```
   5. Save the file and try running your code again.
 
-### 6. Run the Game
+### 6b. Windows: "python" Not Found or Issues Running Code
+- If you see errors about `python` not being found, make sure Python is added to your PATH during installation.
+- If using the Code Runner extension and it doesn't work, you can set the executor map for Windows:
+  1. Open VSCode settings (press `Ctrl + ,`).
+  2. Search for `code runner executor map`.
+  3. Click `Edit in settings.json`.
+  4. Add or update the following line:
+     ```json
+     "code-runner.executorMap": {
+         "python": "python -u"
+     }
+     ```
+  5. Save the file and try running your code again.
+
+### 7. Run the Game
 - Open `main.py`.
 - Press the play (▶️) button in the top right, or right-click the file and select `Run Python File in Terminal`.
 - The Pong game window should appear!
+- **Windows users:** If you installed Python as `python`, use the play button or run in terminal:
+  ```powershell
+  python main.py
+  ```
+  or
+  ```powershell
+  py main.py
+  ```
+- **macOS users:**
+  ```sh
+  python3 main.py
+  ```
 
 ## Additional Resources
 - [Pygame Documentation](https://www.pygame.org/docs/)
